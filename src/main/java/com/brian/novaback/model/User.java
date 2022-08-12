@@ -29,4 +29,5 @@ public class User implements Serializable {
 
     @Column(nullable = false)
     private boolean status;
+
 }
