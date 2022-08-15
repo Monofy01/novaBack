@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,13 +22,18 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private String email;
+    @ElementCollection
+    @Column(nullable = false, unique = true)
+    private List<String> emails;
 
     @Column(nullable = false)
     private String gender; //enum;
 
+
     @Column(nullable = false)
     private boolean status;
+
+    @Column(columnDefinition = "LONGTEXT")
+    private String img;
 
 }
